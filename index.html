@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <title>Jquery Todo List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="wrapper" align="center">
+      <h2 class="title">Jquery Todo List</h2>
+      <input type="text" placeholder="Add new Todo list" />
+      <button type="button" id="addlist">Add</button>
+      <div id="newList"></div>
+    </div>
+    <script type="text/javascript">
+      $("#addlist").click(function () {
+        if ($("#wrapper input").val() == 0) {
+          alert("Plase add list");
+        } else {
+          let listValue = $("#wrapper input").val();
+          $("#newList").append(
+            `<p> ` +
+              listValue +
+              ` <button " class='delete'>Delete </button> </p>`
+          );
+          $("#wrapper input").val("");
+          $(".delete").click(function () {
+            $(this).parent().remove();
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
